@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:outlook/responsive.dart';
+import 'package:movieapp/responsive.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../constants.dart';
@@ -11,7 +11,7 @@ import 'package:flutter/foundation.dart' show kIsWeb;
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

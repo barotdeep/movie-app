@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:outlook/models/Email.dart';
+import 'package:movieapp/models/Email.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../constants.dart';
@@ -8,11 +8,11 @@ import 'components/header.dart';
 
 class EmailScreen extends StatelessWidget {
   const EmailScreen({
-    Key key,
+    Key? key,
     this.email,
   }) : super(key: key);
 
-  final Email email;
+  final Email? email;
 
   @override
   Widget build(BuildContext context) {

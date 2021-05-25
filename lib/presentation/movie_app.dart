@@ -70,7 +70,7 @@ class _MovieAppState extends State<MovieApp> {
             title: 'Movie App',
             theme: ThemeData(
               unselectedWidgetColor: AppColor.royalBlue,
-              primaryColor: AppColor.vulcan,
+              primaryColor: Colors.deepOrangeAccent,
               accentColor: AppColor.royalBlue,
               scaffoldBackgroundColor: AppColor.vulcan,
               visualDensity: VisualDensity.adaptivePlatformDensity,

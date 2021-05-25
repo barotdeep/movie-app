@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:outlook/responsive.dart';
+import 'package:movieapp/responsive.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';
 
 class Header extends StatelessWidget {
   const Header({
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override

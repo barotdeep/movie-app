@@ -1,26 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/components/side_menu.dart';
-import 'package:movieapp/models/Email.dart';
+import 'package:movieapp/models/Address.dart';
 import 'package:movieapp/responsive.dart';
-import 'package:movieapp/screens/email/email_screen.dart';
+import 'package:movieapp/screens/address/address_screen.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';
-import 'email_card.dart';
+import 'address_card.dart';
 
 import 'package:flutter/foundation.dart' show kIsWeb;
 
-class ListOfEmails extends StatefulWidget {
+class ListOfAddresses extends StatefulWidget {
   // Press "Command + ."
-  const ListOfEmails({
+  const ListOfAddresses({
     Key? key,
   }) : super(key: key);
 
   @override
-  _ListOfEmailsState createState() => _ListOfEmailsState();
+  _ListOfAddressesState createState() => _ListOfAddressesState();
 }
 
-class _ListOfEmailsState extends State<ListOfEmails> {
+class _ListOfAddressesState extends State<ListOfAddresses> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
@@ -109,17 +109,17 @@ class _ListOfEmailsState extends State<ListOfEmails> {
               SizedBox(height: kDefaultPadding),
               Expanded(
                 child: ListView.builder(
-                  itemCount: emails.length,
+                  itemCount: addresses.length,
                   // On mobile this active dosen't mean anything
-                  itemBuilder: (context, index) => EmailCard(
+                  itemBuilder: (context, index) => AddressCard(
                     isActive: Responsive.isMobile(context) ? false : index == 0,
-                    email: emails[index],
+                    address: addresses[index],
                     press: () {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
                           builder: (context) =>
-                              EmailScreen(email: emails[index]),
+                              AddressScreen(address: addresses[index]),
                         ),
                       );
                     },

@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:movieapp/models/Address.dart';
 import 'package:movieapp/models/Email.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';
 import '../../../extensions.dart';
 
-class EmailCard extends StatelessWidget {
-  const EmailCard({
+class AddressCard extends StatelessWidget {
+  const AddressCard({
     Key? key,
     this.isActive = true,
-    required this.email,
+    required this.address,
     required this.press,
   }) : super(key: key);
 
   final bool isActive;
-  final Email email;
+  final Address address;
   final VoidCallback press;
 
   @override
@@ -41,14 +42,15 @@ class EmailCard extends StatelessWidget {
                         width: 32,
                         child: CircleAvatar(
                           backgroundColor: Colors.transparent,
-                          backgroundImage: AssetImage(email.image),
+                          backgroundImage:
+                              AssetImage("assets/images/user_1.png"),
                         ),
                       ),
                       SizedBox(width: kDefaultPadding / 2),
                       Expanded(
                         child: Text.rich(
                           TextSpan(
-                            text: "${email.name} \n",
+                            text: "${address.street} \n",
                             style: TextStyle(
                               fontSize: 16,
                               fontWeight: FontWeight.w500,
@@ -56,7 +58,7 @@ class EmailCard extends StatelessWidget {
                             ),
                             children: [
                               TextSpan(
-                                text: email.subject,
+                                text: address.streetName,
                                 style: Theme.of(context)
                                     .textTheme
                                     .bodyText2!
@@ -72,14 +74,14 @@ class EmailCard extends StatelessWidget {
                       Column(
                         children: [
                           Text(
-                            email.time,
+                            address.zipCode,
                             style:
                                 Theme.of(context).textTheme.caption!.copyWith(
                                       color: isActive ? Colors.white70 : null,
                                     ),
                           ),
                           SizedBox(height: 5),
-                          if (email.isAttachmentAvailable)
+                          if (true)
                             WebsafeSvg.asset(
                               "assets/Icons/Paperclip.svg",
                               color: isActive ? Colors.white70 : kGrayColor,
@@ -90,7 +92,7 @@ class EmailCard extends StatelessWidget {
                   ),
                   SizedBox(height: kDefaultPadding / 2),
                   Text(
-                    email.body,
+                    address.city,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                     style: Theme.of(context).textTheme.caption!.copyWith(
@@ -107,7 +109,7 @@ class EmailCard extends StatelessWidget {
               topShadowColor: Colors.white60,
               bottomShadowColor: Color(0xFF234395).withOpacity(0.15),
             ),
-            if (!email.isChecked)
+            if (true)
               Positioned(
                 right: 8,
                 top: 8,
@@ -124,14 +126,14 @@ class EmailCard extends StatelessWidget {
                   offset: Offset(2, 2),
                 ),
               ),
-            if (email.tagColor != null)
+            if (address.street != null)
               Positioned(
                 left: 8,
                 top: 0,
                 child: WebsafeSvg.asset(
                   "assets/Icons/Markup filled.svg",
                   height: 18,
-                  color: email.tagColor,
+                  color: Colors.blue,
                 ),
               )
           ],

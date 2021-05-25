@@ -13,11 +13,11 @@ Having said that, if you need to learn landscape and web version of this applica
 
 So, Let’s get started.
 
-## What is this series?
+What is this series?
 
 It would be too verbose here to explain each and everything in the article, it would be much easier for you to see the final outcome yourself. Please visit the video and comeback again. https://youtu.be/jGZuJlsXHCA
 
-## How it's build?
+How it's build?
 
 Developing apps in Flutter gives you free hand to choose the architecture and libraries. With so many options in your hand you’ll often donate a lot of your time in selecting a specific architecture. Most popular and trustworthy architecture is Clean architecture, where you’ve separate layers for Presentation, Domain and Data.
 

@@ -1,83 +1,151 @@
 import 'package:flutter/material.dart';
 
-class Email {
-  final String image, name, subject, body, time;
-  final bool isAttachmentAvailable, isChecked;
-  final Color? tagColor;
+class Address {
+  final String street,
+      streetName,
+      city,
+      zipCode,
+      buildingNumber,
+      country,
+      countryCode;
+  final double latitude, longitude;
 
-  Email({
-    required this.time,
-    required this.isChecked,
-    required this.image,
-    required this.name,
-    required this.subject,
-    required this.body,
-    required this.isAttachmentAvailable,
-    required this.tagColor,
+  Address({
+    required this.street,
+    required this.streetName,
+    required this.city,
+    required this.zipCode,
+    required this.buildingNumber,
+    required this.country,
+    required this.countryCode,
+    required this.latitude,
+    required this.longitude,
   });
 }
 
-List<Email> emails = List.generate(
+List<Address> addresses = List.generate(
   demo_data.length,
-  (index) => Email(
-    name: demo_data[index]['name'],
-    image: demo_data[index]['image'],
-    subject: demo_data[index]['subject'],
-    isAttachmentAvailable: demo_data[index]['isAttachmentAvailable'],
-    isChecked: demo_data[index]['isChecked'],
-    tagColor: demo_data[index]['tagColor'],
-    time: demo_data[index]['time'],
-    body: emailDemoText,
-  ),
+  (index) => Address(
+      street: demo_data[index]['street'],
+      streetName: demo_data[index]['streetName'],
+      city: demo_data[index]['city'],
+      zipCode: demo_data[index]['zipcode'],
+      buildingNumber: demo_data[index]['buildingNumber'],
+      country: demo_data[index]['country'],
+      countryCode: demo_data[index]['county_code'],
+      latitude: demo_data[index]['latitude'],
+      longitude: demo_data[index]['longitude']),
 );
 
 List demo_data = [
   {
-    "name": "Apple",
-    "image": "assets/images/user_1.png",
-    "subject": "iPhone 12 is here",
-    "isAttachmentAvailable": false,
-    "isChecked": true,
-    "tagColor": null,
-    "time": "Now"
+    "street": "285 Alisa Via Suite 688",
+    "streetName": "Nikko Mission",
+    "buildingNumber": "885",
+    "city": "Kayaborough",
+    "zipcode": "32105",
+    "country": "Uruguay",
+    "county_code": "ME",
+    "latitude": 42.466286,
+    "longitude": 83.485899
   },
   {
-    "name": "Elvia Atkins",
-    "image": "assets/images/user_2.png",
-    "subject": "Inspiration for our new home",
-    "isAttachmentAvailable": true,
-    "isChecked": false,
-    "tagColor": null,
-    "time": "15:32"
+    "street": "918 Douglas Viaduct",
+    "streetName": "Jose Junction",
+    "buildingNumber": "5751",
+    "city": "Jarenview",
+    "zipcode": "14878",
+    "country": "Niue",
+    "county_code": "IR",
+    "latitude": -46.035382,
+    "longitude": -51.161374
   },
   {
-    "name": "Marvin Kiehn",
-    "image": "assets/images/user_3.png",
-    "subject": "Business-focused empowering the world",
-    "isAttachmentAvailable": true,
-    "isChecked": false,
-    "tagColor": null,
-    "time": "14:27",
+    "street": "76079 O'Kon Forks Apt. 867",
+    "streetName": "Bruen Glen",
+    "buildingNumber": "86870",
+    "city": "Lake Mortimerberg",
+    "zipcode": "65264",
+    "country": "Slovakia (Slovak Republic)",
+    "county_code": "GN",
+    "latitude": -29.476355,
+    "longitude": 24.637353
   },
   {
-    "name": "Domenic Bosco",
-    "image": "assets/images/user_4.png",
-    "subject": "The fastest way to Design",
-    "isAttachmentAvailable": false,
-    "isChecked": true,
-    "tagColor": Color(0xFF23CF91),
-    "time": "10:43"
+    "street": "33494 Esta Loop",
+    "streetName": "Juston Viaduct",
+    "buildingNumber": "2032",
+    "city": "North Watson",
+    "zipcode": "56181-3432",
+    "country": "Sudan",
+    "county_code": "JO",
+    "latitude": 75.203301,
+    "longitude": 54.543629
   },
   {
-    "name": "Elenor Bauch",
-    "image": "assets/images/user_5.png",
-    "subject": "New job opportunities",
-    "isAttachmentAvailable": false,
-    "isChecked": false,
-    "tagColor": Color(0xFF3A6FF7),
-    "time": "9:58"
+    "street": "93300 Michel Club",
+    "streetName": "Daniel Canyon",
+    "buildingNumber": "90531",
+    "city": "Brendaview",
+    "zipcode": "61162-2379",
+    "country": "Armenia",
+    "county_code": "VA",
+    "latitude": -59.14575,
+    "longitude": -128.131786
+  },
+  {
+    "street": "44064 Nikolaus Track",
+    "streetName": "Eriberto Loop",
+    "buildingNumber": "42520",
+    "city": "North Mollie",
+    "zipcode": "52172",
+    "country": "Chad",
+    "county_code": "NL",
+    "latitude": -50.548169,
+    "longitude": -50.265487
+  },
+  {
+    "street": "368 Anika Island Suite 708",
+    "streetName": "Rowland Fall",
+    "buildingNumber": "862",
+    "city": "Lake Corineville",
+    "zipcode": "44116",
+    "country": "Chad",
+    "county_code": "CK",
+    "latitude": 69.404935,
+    "longitude": -104.648998
+  },
+  {
+    "street": "8893 Strosin Falls Apt. 055",
+    "streetName": "Spencer Inlet",
+    "buildingNumber": "867",
+    "city": "Rasheedburgh",
+    "zipcode": "11810-8794",
+    "country": "Saint Pierre and Miquelon",
+    "county_code": "GY",
+    "latitude": -64.190617,
+    "longitude": -45.515105
+  },
+  {
+    "street": "378 Kessler Passage",
+    "streetName": "Hirthe Court",
+    "buildingNumber": "662",
+    "city": "North Eunice",
+    "zipcode": "34054-4122",
+    "country": "Niue",
+    "county_code": "CM",
+    "latitude": -63.55177,
+    "longitude": 2.761298
+  },
+  {
+    "street": "8822 Romaguera Via Suite 775",
+    "streetName": "Conor Stravenue",
+    "buildingNumber": "1333",
+    "city": "Morarfort",
+    "zipcode": "87333",
+    "country": "Bahrain",
+    "county_code": "BF",
+    "latitude": -87.299452,
+    "longitude": 143.527052
   }
 ];
-
-String emailDemoText =
-    "Corporis illo provident. Sunt omnis neque et aperiam. Nemo ut dolorum fugit eum sed. Corporis illo provident. Sunt omnis neque et aperiam. Nemo ut dolorum fugit eum sed. Corporis illo provident. Sunt omnis neque et aperiam. Nemo ut dolorum fugit eum sed";

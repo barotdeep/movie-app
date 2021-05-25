@@ -8,6 +8,10 @@
 .buildlog/
 .history
 .svn/
+.gradle/
+android/settings_aar.gradle
+*.lock
+
 
 # IntelliJ related
 *.iml

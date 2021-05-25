@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:outlook/components/side_menu.dart';
-import 'package:outlook/responsive.dart';
-import 'package:outlook/screens/email/email_screen.dart';
-import 'components/list_of_emails.dart';
+import 'package:movieapp/components/side_menu.dart';
+import 'package:movieapp/responsive.dart';
+import 'package:movieapp/screens/address/address_screen.dart';
+import 'package:movieapp/screens/main/components/list_of_addresses.dart';
 
 class MainScreen extends StatelessWidget {
   @override
@@ -12,16 +12,16 @@ class MainScreen extends StatelessWidget {
     return Scaffold(
       body: Responsive(
         // Let's work on our mobile part
-        mobile: ListOfEmails(),
+        mobile: ListOfAddresses(),
         tablet: Row(
           children: [
             Expanded(
               flex: 6,
-              child: ListOfEmails(),
+              child: ListOfAddresses(),
             ),
             Expanded(
               flex: 9,
-              child: EmailScreen(),
+              child: AddressScreen(),
             ),
           ],
         ),
@@ -35,11 +35,11 @@ class MainScreen extends StatelessWidget {
             ),
             Expanded(
               flex: _size.width > 1340 ? 3 : 5,
-              child: ListOfEmails(),
+              child: ListOfAddresses(),
             ),
             Expanded(
               flex: _size.width > 1340 ? 8 : 10,
-              child: EmailScreen(),
+              child: AddressScreen(),
             ),
           ],
         ),

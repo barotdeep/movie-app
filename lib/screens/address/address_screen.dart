@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
-import 'package:movieapp/models/Email.dart';
+import 'package:movieapp/models/Address.dart';
+import 'package:movieapp/screens/address/components/my_map.dart';
 import 'package:websafe_svg/websafe_svg.dart';
+import 'package:map/map.dart';
 
 import '../../constants.dart';
+import '../../presentation/widgets/button.dart';
 import 'components/header.dart';
 
-class EmailScreen extends StatelessWidget {
-  const EmailScreen({
+class AddressScreen extends StatelessWidget {
+  const AddressScreen({
     Key? key,
-    this.email,
+    this.address,
   }) : super(key: key);
 
-  final Email? email;
+  final Address? address;
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +36,7 @@ class EmailScreen extends StatelessWidget {
                       CircleAvatar(
                         maxRadius: 24,
                         backgroundColor: Colors.transparent,
-                        backgroundImage: AssetImage(emails[1].image),
+                        backgroundImage: AssetImage("assets/images/user_1.png"),
                       ),
                       SizedBox(width: kDefaultPadding),
                       Expanded(
@@ -49,7 +52,7 @@ class EmailScreen extends StatelessWidget {
                                     children: [
                                       Text.rich(
                                         TextSpan(
-                                          text: emails[1].name,
+                                          text: addresses[1].street,
                                           style: Theme.of(context)
                                               .textTheme
                                               .button,
@@ -88,8 +91,38 @@ class EmailScreen extends StatelessWidget {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
+                                    Button(
+                                      text: "Location",
+                                      onPressed: () {
+                                        Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder: (context) => MyMap(
+                                              latitude: address!.latitude,
+                                              longitude: address!.longitude,
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
                                     Text(
-                                      "Hello my love, \n \nSunt architecto voluptatum esse tempora sint nihil minus incidunt nisi. Perspiciatis natus quo unde magnam numquam pariatur amet ut. Perspiciatis ab totam. Ut labore maxime provident. Voluptate ea omnis et ipsum asperiores laborum repellat explicabo fuga. Dolore voluptatem praesentium quis eos laborum dolores cupiditate nemo labore. \n \nLove you, \n\nElvia",
+                                      "${address.toString()}",
+                                      style: TextStyle(
+                                        height: 1.5,
+                                        color: Color(0xFF4D5875),
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Location: ${address!.latitude}, ${address!.longitude}",
+                                      style: TextStyle(
+                                        height: 1.5,
+                                        color: Color(0xFF4D5875),
+                                        fontWeight: FontWeight.w300,
+                                      ),
+                                    ),
+                                    Text(
+                                      "Hello my love,\n \nSunt architecto voluptatum esse tempora sint nihil minus incidunt nisi. Perspiciatis natus quo unde magnam numquam pariatur amet ut. Perspiciatis ab totam. Ut labore maxime provident. Voluptate ea omnis et ipsum asperiores laborum repellat explicabo fuga. Dolore voluptatem praesentium quis eos laborum dolores cupiditate nemo labore. \n \nLove you, \n\nElvia",
                                       style: TextStyle(
                                         height: 1.5,
                                         color: Color(0xFF4D5875),
