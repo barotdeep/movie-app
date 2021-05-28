@@ -21,15 +21,7 @@ class _MyMapState extends State<MyMap> {
     location: LatLng(35.68, 51.41),
   );
 
-  final markers = [
-    LatLng(35.674, 51.41),
-    LatLng(35.676, 51.41),
-    LatLng(35.678, 51.41),
-    LatLng(35.68, 51.41),
-    LatLng(35.682, 51.41),
-    LatLng(35.684, 51.41),
-    LatLng(35.686, 51.41),
-  ];
+  final markers = [];
 
   void _gotoDefault() {
     controller.center = LatLng(widget.longitude, widget.latitude);
@@ -86,15 +78,15 @@ class _MyMapState extends State<MyMap> {
       body: MapLayoutBuilder(
         controller: controller,
         builder: (context, transformer) {
-          final markerPositions =
-              markers.map(transformer.fromLatLngToXYCoords).toList();
+          // final markerPositions =
+          //     markers.map(transformer.fromLatLngToXYCoords).toList();
+          //
+          // final markerWidgets = markerPositions.map(
+          //   (pos) => _buildMarkerWidget(pos, Colors.red),
+          // );
 
-          final markerWidgets = markerPositions.map(
-            (pos) => _buildMarkerWidget(pos, Colors.red),
-          );
-
-          final homeLocation =
-              transformer.fromLatLngToXYCoords(LatLng(35.68, 51.412));
+          final homeLocation = transformer
+              .fromLatLngToXYCoords(LatLng(widget.longitude, widget.latitude));
 
           final homeMarkerWidget =
               _buildMarkerWidget(homeLocation, Colors.black);
@@ -138,7 +130,7 @@ class _MyMapState extends State<MyMap> {
                   child: Icon(Icons.close, color: Colors.black),
                 ),
                 homeMarkerWidget,
-                ...markerWidgets,
+                // ...markerWidgets,
                 centerMarkerWidget,
               ],
             ),

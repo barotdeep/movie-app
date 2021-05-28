@@ -47,7 +47,7 @@ List demo_data = [
     "country": "Uruguay",
     "county_code": "ME",
     "latitude": 42.466286,
-    "longitude": 83.485899
+    "longitude": -82.707640
   },
   {
     "street": "918 Douglas Viaduct",

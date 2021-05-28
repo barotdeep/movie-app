@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movieapp/components/side_menu.dart';
 import 'package:movieapp/models/Address.dart';
+import 'package:movieapp/presentation/widgets/button.dart';
 import 'package:movieapp/responsive.dart';
 import 'package:movieapp/screens/address/address_screen.dart';
+import 'package:movieapp/screens/main/components/add_new_address.dart';
 import 'package:websafe_svg/websafe_svg.dart';
 
 import '../../../constants.dart';
@@ -102,6 +104,27 @@ class _ListOfAddressesState extends State<ListOfAddresses> {
                         "assets/Icons/Sort.svg",
                         width: 16,
                       ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: kDefaultPadding),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: kDefaultPadding),
+                child: Row(
+                  children: [
+                    Button(
+                      text: "Add Address",
+                      onPressed: () {
+                        print("Add new address");
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => AddAddressScreen(),
+                          ),
+                        );
+                      },
                     ),
                   ],
                 ),
